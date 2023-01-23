@@ -3,7 +3,7 @@ const anime = `${domain}/anime`;
 const manga = `${domain}/manga`;
 const characters = `${domain}/characters`;
 const recommendations = `${domain}/recommendations`;
-const season = `${domain}/season`;
+const season = `${domain}/seasons`;
 const top = `${domain}/top`;
 
 const LIMIT = 20;
@@ -42,5 +42,5 @@ export const jikanAPI = {
   getSeasonNow: (page = 1) => `${season}/now?page=${page}`,
   //Top
   getTopAnime: (page = 1) => `${top}/anime?page=${page}&limit=${LIMIT}`,
-  getTopManga: (page = 1) => `${top}/manga?page=${page}$limit=${LIMIT}`,
+  getTopManga: (page = 1) => `${top}/manga?page=${page}&limit=${LIMIT}`,
 };

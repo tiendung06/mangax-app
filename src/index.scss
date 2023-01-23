@@ -3,13 +3,31 @@
 @tailwind utilities;
 
 @layer base {
-  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
   body {
-    @apply bg-darkbg text-white text-sm lg:text-base font-body;
+    @apply bg-lite text-text1 text-sm lg:text-base font-body;
   }
 
   img {
     @apply block select-none;
+  }
+}
+
+@layer components {
+  .movie-list .swiper-slide {
+    @apply w-[300px] h-auto;
+  }
+}
+
+.swiper {
+  padding-bottom: 20px !important;
+  .swiper-button-prev,
+  .swiper-button-next {
+    @apply text-text4 w-10 h-10 bg-white rounded-full shadow-lg;
+  }
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    @apply text-xl font-semibold;
   }
 }

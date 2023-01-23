@@ -6,7 +6,9 @@ const LayoutMain = () => {
   return (
     <div className="container mx-auto">
       <Header />
-      <Outlet></Outlet>
+      <div className="py-5 lg:py-10">
+        <Outlet></Outlet>
+      </div>
       <Footer />
     </div>
   );
