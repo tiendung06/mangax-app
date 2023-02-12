@@ -6,7 +6,7 @@
   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
   body {
-    @apply bg-lite text-text1 text-sm lg:text-base font-body;
+    @apply bg-lite text-text1 text-sm leading-relaxed lg:text-base font-body;
   }
 
   img {
@@ -15,19 +15,46 @@
 }
 
 @layer components {
-  .movie-list .swiper-slide {
-    @apply w-[300px] h-auto;
-  }
 }
 
 .swiper {
-  padding-bottom: 20px !important;
   .swiper-button-prev,
   .swiper-button-next {
     @apply text-text4 w-10 h-10 bg-white rounded-full shadow-lg;
   }
+
   .swiper-button-prev::after,
   .swiper-button-next::after {
     @apply text-xl font-semibold;
+  }
+}
+
+.trailer:hover > div {
+  visibility: visible;
+}
+.card:hover > .name {
+  visibility: visible;
+}
+
+.spacing {
+  @apply px-5 lg:px-10 container mx-auto;
+}
+
+.navigation {
+  .selected {
+    @apply font-semibold text-white bg-secondary;
+  }
+
+  .previous,
+  .next {
+    @apply bg-white text-icon-color shadow-[0px_3px_6px_rgba(131,146,166,0.1)];
+  }
+
+  li {
+    @apply rounded-xl;
+  }
+
+  a {
+    @apply w-8 h-8 flex items-center justify-center;
   }
 }

@@ -8,7 +8,7 @@ const HomePage = () => {
       {/* <Banner></Banner> */}
       <List title="Season Now" type={jikanAPI.getSeasonNow()} />
       <List title="Top Anime" type={jikanAPI.getTopAnime()} />
-      <List title="Top Manga" type={jikanAPI.getTopManga()} />
+      {/* <List title="Top Manga" type={jikanAPI.getTopManga()} /> */}
     </div>
   );
 };

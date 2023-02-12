@@ -2,9 +2,9 @@ export interface ICard {
   mal_id: number;
   images: Images;
   title: string;
-  genres: Genre[];
-  favorites: number;
-  score: number;
+  genres?: Genre[];
+  favorites?: number;
+  score?: number;
 }
 
 export interface Images {

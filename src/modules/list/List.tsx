@@ -4,11 +4,10 @@ import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Root } from "../../interface/animeInterface";
 import { Navigation } from "swiper";
-import { IList } from "../../interface/listInterface";
 import "swiper/css/navigation";
 import "swiper/css";
 
-const List = ({ title, type }: IList) => {
+const List = ({ title, type }: { title: string; type: any }) => {
   const [list, setList] = useState<Root[]>([]);
   useEffect((): void => {
     axios.get(type).then(({ data }) => {
@@ -17,10 +16,12 @@ const List = ({ title, type }: IList) => {
   }, [type]);
 
   return (
-    <div className="px-5 mb-10 lg:px-10 movie-list">
+    <div className="px-5 mb-10 lg:px-10">
       <div className="flex items-center justify-between mb-5">
-        <h2 className="text-lg font-semibold">{title}</h2>
-        <span className="text-sm cursor-pointer">View more</span>
+        <h2 className="font-semibold md:text-lg">{title}</h2>
+        <span className="text-xs transition-all cursor-pointer md:text-sm hover:text-secondary">
+          View more
+        </span>
       </div>
       <div className="flex items-center justify-center w-full h-auto">
         <Swiper
@@ -29,6 +30,7 @@ const List = ({ title, type }: IList) => {
           slidesPerView={"auto"}
           navigation
           spaceBetween={20}
+          className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-x-5"
         >
           {list.map(
             ({ mal_id, images, title, genres, favorites, score }: Root) => {
