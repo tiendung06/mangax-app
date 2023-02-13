@@ -51,7 +51,11 @@
   }
 
   li {
-    @apply rounded-xl;
+    @apply rounded-xl transition-all;
+  }
+
+  li:hover:not(.selected, .previous, .break, .next) {
+    @apply text-secondary;
   }
 
   a {

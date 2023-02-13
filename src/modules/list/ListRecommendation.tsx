@@ -13,7 +13,6 @@ const ListRecommendation = ({ id }: { id: string | undefined }) => {
   useEffect(() => {
     axios.get(jikanAPI.getAnimeRecommendations(Number(id))).then(({ data }) => {
       setRecommendation(data.data);
-      console.log(data.data);
     });
   }, [id]);
 

@@ -2,13 +2,13 @@ import Card from "../../components/card/Card";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Root } from "../../interface/animeInterface";
+import { Anime } from "../../interface/animeInterface";
 import { Navigation } from "swiper";
 import "swiper/css/navigation";
 import "swiper/css";
 
 const List = ({ title, type }: { title: string; type: any }) => {
-  const [list, setList] = useState<Root[]>([]);
+  const [list, setList] = useState<Anime[]>([]);
   useEffect((): void => {
     axios.get(type).then(({ data }) => {
       setList(data.data);
@@ -33,7 +33,7 @@ const List = ({ title, type }: { title: string; type: any }) => {
           className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-x-5"
         >
           {list.map(
-            ({ mal_id, images, title, genres, favorites, score }: Root) => {
+            ({ mal_id, images, title, genres, favorites, score }: Anime) => {
               return (
                 <SwiperSlide key={mal_id}>
                   <Card

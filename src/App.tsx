@@ -10,6 +10,7 @@ const DetailsPageCharacters = lazy(
   () => import("./pages/DetailsPageCharacters")
 );
 const DetailsPageEpisodes = lazy(() => import("./pages/DetailsPageEpisodes"));
+const AnimePage = lazy(() => import("./pages/AnimesPage"));
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route element={<LayoutMain></LayoutMain>}>
             <Route path="/" element={<HomePage></HomePage>}></Route>
+            <Route path="/anime" element={<AnimePage></AnimePage>}></Route>
             <Route
               path="/anime/:id/overviews"
               element={<DetailsPage></DetailsPage>}

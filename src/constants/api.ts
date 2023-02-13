@@ -6,7 +6,7 @@ const recommendations = `${domain}/recommendations`;
 const season = `${domain}/seasons`;
 const top = `${domain}/top`;
 
-const LIMIT = 20;
+const LIMIT = 24;
 
 export const jikanAPI = {
   //Anime
