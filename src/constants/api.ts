@@ -29,8 +29,9 @@ export const jikanAPI = {
   getMangaRecommendations: (id: number) => `${manga}/${id}/recommendations`,
   getMangaReviews: (id: number) => `${manga}/${id}/reviews`,
   //Characters
-  getListCharacters: (page = 1) => `${characters}?page=${page}`,
+  getListCharacters: (page = 1) => `${characters}?page=${page}&limit=${LIMIT}`,
   getCharacterById: (id: number) => `${characters}/${id}`,
+  getCharacterAnime: (id: number) => `${characters}/${id}/anime`,
   getCharacterVoiceActors: (id: number) => `${characters}/${id}/voices`,
   getCharacterPictures: (id: number) => `${characters}/${id}/pictures`,
   //Recommendations

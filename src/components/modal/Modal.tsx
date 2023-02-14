@@ -32,7 +32,7 @@ export default function Modal(props: ModalType) {
               ></iframe>
             </div>
           ) : (
-            <div onClick={(e) => e.stopPropagation()}>
+            <div className="h-4/5" onClick={(e) => e.stopPropagation()}>
               <img
                 src={props.url}
                 alt=""

@@ -1,5 +1,6 @@
 import ReactPaginate from "react-paginate";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { jikanAPI } from "../../constants/api";
 import { Characters } from "../../interface/charactersInterface";
@@ -9,7 +10,7 @@ const itemsPerPage = 20;
 const DetailsCharacters = ({ id }: { id: string | undefined }) => {
   const [characters, setCharacters] = useState<Characters[]>([]);
   const [itemOffset, setItemOffset] = useState(0);
-
+  const navigate = useNavigate();
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = characters.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(characters.length / itemsPerPage);
@@ -32,8 +33,9 @@ const DetailsCharacters = ({ id }: { id: string | undefined }) => {
         {currentItems?.map(({ character, voice_actors, role }: Characters) => {
           return (
             <div
-              className="flex items-center gap-3 justify-between p-2 bg-white rounded-xl shadow-[-4px_4px_8px_rgba(226,226,226,0.2),4px_4px_8px_rgba(226,226,226,0.2)]"
+              className="flex items-center gap-3 justify-between p-2 bg-white rounded-xl shadow-[-4px_4px_8px_rgba(226,226,226,0.2),4px_4px_8px_rgba(226,226,226,0.2)] cursor-pointer"
               key={character.mal_id}
+              onClick={() => navigate(`/character/${character.mal_id}`)}
             >
               <div className="flex flex-1 h-full">
                 <div className="w-20 h-full">

@@ -41,6 +41,7 @@
 }
 
 .navigation {
+  @apply flex-wrap;
   .selected {
     @apply font-semibold text-white bg-secondary;
   }
@@ -59,6 +60,6 @@
   }
 
   a {
-    @apply w-8 h-8 flex items-center justify-center;
+    @apply min-w-[32px] px-1 h-8 flex items-center justify-center;
   }
 }
