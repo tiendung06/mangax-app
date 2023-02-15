@@ -1,13 +1,15 @@
 import Card from "../../components/card/Card";
 import axios from "axios";
-import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Anime } from "../../interface/animeInterface";
 import { Navigation } from "swiper";
+import { ListType } from "../../type/listType";
+import { Link } from "react-router-dom";
+import { FC, useEffect, useState } from "react";
+import { Anime } from "../../interface/animeInterface";
 import "swiper/css/navigation";
 import "swiper/css";
 
-const List = ({ title, type }: { title: string; type: any }) => {
+const List: FC<ListType> = ({ title, type, link }) => {
   const [list, setList] = useState<Anime[]>([]);
   useEffect((): void => {
     axios.get(type).then(({ data }) => {
@@ -19,9 +21,12 @@ const List = ({ title, type }: { title: string; type: any }) => {
     <div className="px-5 mb-10 lg:px-10">
       <div className="flex items-center justify-between mb-5">
         <h2 className="font-semibold md:text-lg">{title}</h2>
-        <span className="text-xs transition-all cursor-pointer md:text-sm hover:text-secondary">
+        <Link
+          to={link}
+          className="text-xs transition-all cursor-pointer md:text-sm hover:text-secondary"
+        >
           View more
-        </span>
+        </Link>
       </div>
       <div className="flex items-center justify-center w-full h-auto">
         <Swiper

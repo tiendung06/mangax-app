@@ -40,7 +40,7 @@ export const jikanAPI = {
   getRecentMangaRecommendations: (page = 1) =>
     `${recommendations}/manga?page=${page}`,
   //Season
-  getSeasonNow: (page = 1) => `${season}/now?page=${page}`,
+  getSeasonNow: (page = 1) => `${season}/now?page=${page}&limit=${LIMIT}`,
   //Top
   getTopAnime: (page = 1) => `${top}/anime?page=${page}&limit=${LIMIT}`,
   getTopManga: (page = 1) => `${top}/manga?page=${page}&limit=${LIMIT}`,

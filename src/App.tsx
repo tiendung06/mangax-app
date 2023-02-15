@@ -13,6 +13,7 @@ const DetailsPageEpisodes = lazy(() => import("./pages/DetailsPageEpisodes"));
 const AnimePage = lazy(() => import("./pages/AnimesPage"));
 const CharactersPage = lazy(() => import("./pages/CharactersPage"));
 const CharacterDetailsPage = lazy(() => import("./pages/CharacterDetailsPage"));
+const SeasonPage = lazy(() => import("./pages/SeasonPage"));
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
               path="/character/:id"
               element={<CharacterDetailsPage></CharacterDetailsPage>}
             ></Route>
+            <Route path="/season" element={<SeasonPage></SeasonPage>}></Route>
           </Route>
         </Routes>
       </Suspense>
