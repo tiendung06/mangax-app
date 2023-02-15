@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { ICard } from "../../interface/cardInterface";
 
-const Card = ({ mal_id, images, title, genres }: ICard) => {
+const Card = ({ mal_id, images, title }: ICard) => {
   const navigate = useNavigate();
 
   return (
     <div
       className="relative w-full h-full overflow-hidden bg-white cursor-pointer card rounded-2xl"
-      onClick={() => navigate(`/anime/${mal_id}/overviews`)}
+      onClick={() => navigate(`/anime/${mal_id}`)}
     >
       <div className="w-full h-full overflow-hidden rounded-2xl">
         <img

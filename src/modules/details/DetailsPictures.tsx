@@ -1,15 +1,17 @@
 import useModal from "../../hooks/useModal";
 import Modal from "../../components/modal/Modal";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { jikanAPI } from "../../constants/api";
 import { Images } from "../../interface/detailsInterface";
 
-const DetailsPictures = ({ id }: { id: string | undefined }) => {
+const DetailsPictures = () => {
   const [pictures, setPictures] = useState<any>([]);
   const { isOpen, toggle } = useModal();
   const [url, setUrl] = useState<string>("");
   const [typeModal, setTypeModal] = useState<boolean>(false);
+  const { id } = useParams();
 
   useEffect(() => {
     axios.get(jikanAPI.getAnimePictures(Number(id))).then(({ data }) => {

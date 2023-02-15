@@ -1,16 +1,18 @@
 import ReactPaginate from "react-paginate";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { jikanAPI } from "../../constants/api";
 import { Characters } from "../../interface/charactersInterface";
 
 const itemsPerPage = 20;
 
-const DetailsCharacters = ({ id }: { id: string | undefined }) => {
+const DetailsCharacters = () => {
   const [characters, setCharacters] = useState<Characters[]>([]);
   const [itemOffset, setItemOffset] = useState(0);
   const navigate = useNavigate();
+  const { id } = useParams();
+
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = characters.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(characters.length / itemsPerPage);

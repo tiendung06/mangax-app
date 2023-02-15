@@ -2,10 +2,10 @@ import { Details } from "../../interface/detailsInterface";
 
 const Aside = ({ details }: { details: Details | undefined }) => {
   return (
-    <aside className="w-full lg:w-1/3 xl:w-1/5">
+    <aside className="w-full">
       <h2 className="mb-3 text-sm font-semibold md:text-lg">Information</h2>
       <div className="bg-white rounded-xl shadow-[-4px_4px_8px_rgba(226,226,226,0.2),4px_4px_8px_rgba(226,226,226,0.2)] p-5">
-        <ul className="flex flex-col gap-3 text-xs md:text-sm">
+        <ul className="grid grid-cols-1 gap-3 text-xs md:grid-cols-2 md:text-sm">
           <li>Type: {details?.type || "Unknown"}</li>
           <li>Episodes: {details?.episodes || "Unknown"}</li>
           <li>Status: {details?.status || "Unknown"}</li>

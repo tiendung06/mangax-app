@@ -1,14 +1,16 @@
 import ReactPaginate from "react-paginate";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { jikanAPI } from "../../constants/api";
 import { EpisodeVideos } from "../../interface/detailsInterface";
 
 const itemsPerPage = 20;
 
-const DetailsEpisodes = ({ id }: { id: string | undefined }) => {
+const DetailsEpisodes = () => {
   const [episodeVideos, setEpisodeVideos] = useState<EpisodeVideos[]>([]);
   const [itemOffset, setItemOffset] = useState(0);
+  const { id } = useParams();
 
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = episodeVideos.slice(itemOffset, endOffset);

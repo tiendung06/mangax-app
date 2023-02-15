@@ -17,7 +17,7 @@ const ListRecommendation = ({ id }: { id: string | undefined }) => {
   }, [id]);
 
   return (
-    <div className="px-5 lg:px-10">
+    <div className="spacing">
       <h2 className="mb-5 text-sm font-semibold md:text-lg">Recommendations</h2>
       <div className="flex items-center justify-center w-full h-auto">
         <Swiper

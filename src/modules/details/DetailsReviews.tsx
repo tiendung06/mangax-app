@@ -1,5 +1,6 @@
 import ReactPaginate from "react-paginate";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Review } from "../../interface/reviewsInterface";
 import { jikanAPI } from "../../constants/api";
@@ -8,9 +9,10 @@ import { addCommas } from "../../helper";
 
 const itemsPerPage = 5;
 
-const DetailsReviews = ({ id }: { id: string | undefined }) => {
+const DetailsReviews = () => {
   const [reviews, setReviews] = useState<Review[]>([]);
   const [itemOffset, setItemOffset] = useState(0);
+  const { id } = useParams();
 
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = reviews.slice(itemOffset, endOffset);

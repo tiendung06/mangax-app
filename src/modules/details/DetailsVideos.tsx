@@ -1,15 +1,17 @@
 import useModal from "../../hooks/useModal";
 import Modal from "../../components/modal/Modal";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Promo } from "../../interface/detailsInterface";
 import { jikanAPI } from "../../constants/api";
 
-const DetailsVideos = ({ id }: { id: string | undefined }) => {
+const DetailsVideos = () => {
   const [videos, setVideos] = useState<any>([]);
   const { isOpen, toggle } = useModal();
   const [url, setUrl] = useState<string>("");
   const [typeModal, setTypeModal] = useState<boolean>(false);
+  const { id } = useParams();
 
   useEffect(() => {
     axios.get(jikanAPI.getAnimeVideos(Number(id))).then(({ data }) => {
@@ -26,7 +28,7 @@ const DetailsVideos = ({ id }: { id: string | undefined }) => {
   return (
     <div>
       <h2 className="mb-3 font-semibold md:text-lg">Trailers</h2>
-      <div className="grid w-full grid-cols-3 gap-5 lg:grid-cols-4 xl:grid-cols-5">
+      <div className="grid w-full grid-cols-3 gap-5 lg:grid-cols-4 xl:grid-cols-6">
         {videos?.map(({ title, trailer }: Promo) => {
           return (
             <div
