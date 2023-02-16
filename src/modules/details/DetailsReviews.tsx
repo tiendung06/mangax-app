@@ -7,33 +7,29 @@ import { jikanAPI } from "../../constants/api";
 import { formatDate } from "../../helper";
 import { addCommas } from "../../helper";
 
-const itemsPerPage = 5;
-
 const DetailsReviews = () => {
   const [reviews, setReviews] = useState<Review[]>([]);
-  const [itemOffset, setItemOffset] = useState(0);
+  const [page, setPage] = useState<number>(1);
+  const [lastPage, setLastPage] = useState<number>(1);
   const { id } = useParams();
 
-  const endOffset = itemOffset + itemsPerPage;
-  const currentItems = reviews.slice(itemOffset, endOffset);
-  const pageCount = Math.ceil(reviews.length / itemsPerPage);
-
   const handlePageClick = (event: any) => {
-    const newOffset = (event.selected * itemsPerPage) % reviews.length;
-    setItemOffset(newOffset);
+    setPage(event.selected + 1);
   };
 
   useEffect(() => {
-    axios.get(jikanAPI.getAnimeReviews(Number(id))).then(({ data }) => {
+    axios.get(jikanAPI.getAnimeReviews(Number(id), page)).then(({ data }) => {
       setReviews(data.data);
+      setPage(data.pagination.current_page);
+      setLastPage(data.pagination.last_visible_page);
     });
-  }, [id]);
+  }, [id, page]);
 
   return (
     <div>
       <h2 className="mb-3 font-semibold md:text-lg">Reviews</h2>
       <div className="">
-        {currentItems?.map(({ mal_id, review, user, date, reactions }) => {
+        {reviews?.map(({ mal_id, review, user, date, reactions }) => {
           return (
             <div className="mb-5" key={mal_id}>
               <div className="flex mb-3 gap-x-4">
@@ -59,10 +55,9 @@ const DetailsReviews = () => {
         nextLabel=">"
         onPageChange={handlePageClick}
         pageRangeDisplayed={5}
-        pageCount={pageCount}
+        pageCount={lastPage}
         previousLabel="<"
         renderOnZeroPageCount={undefined}
-        className="flex items-center justify-center gap-3 font-medium navigation text-text3"
       />
     </div>
   );

@@ -79,7 +79,6 @@ const DetailsCharacters = () => {
         pageCount={pageCount}
         previousLabel="<"
         renderOnZeroPageCount={undefined}
-        className="flex items-center justify-center gap-3 font-medium navigation text-text3"
       />
     </div>
   );

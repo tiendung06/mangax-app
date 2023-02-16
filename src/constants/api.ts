@@ -16,10 +16,12 @@ export const jikanAPI = {
   getAnimeCharacters: (id: number) => `${anime}/${id}/characters`,
   getAnimeVideos: (id: number) => `${anime}/${id}/videos`,
   getAnimeEpisodes: (id: number) => `${anime}/${id}/episodes`,
-  getAnimeVideosEpisodes: (id: number) => `${anime}/${id}/videos/episodes`,
+  getAnimeVideosEpisodes: (id: number, page = 1) =>
+    `${anime}/${id}/videos/episodes?page=${page}`,
   getAnimePictures: (id: number) => `${anime}/${id}/pictures`,
   getAnimeRecommendations: (id: number) => `${anime}/${id}/recommendations`,
-  getAnimeReviews: (id: number) => `${anime}/${id}/reviews`,
+  getAnimeReviews: (id: number, page = 1) =>
+    `${anime}/${id}/reviews?page=${page}`,
   //Manga
   getListManga: (page = 1) => `${manga}?page=${page}&limit=${LIMIT}`,
   getMangaSearch: (filter: string) => `${manga}?q=${filter}$limit=${LIMIT}`,

@@ -5,33 +5,31 @@ import { useEffect, useState } from "react";
 import { jikanAPI } from "../../constants/api";
 import { EpisodeVideos } from "../../interface/detailsInterface";
 
-const itemsPerPage = 20;
-
 const DetailsEpisodes = () => {
   const [episodeVideos, setEpisodeVideos] = useState<EpisodeVideos[]>([]);
-  const [itemOffset, setItemOffset] = useState(0);
+  const [page, setPage] = useState<number>(1);
+  const [lastPage, setLastPage] = useState<number>(1);
   const { id } = useParams();
 
-  const endOffset = itemOffset + itemsPerPage;
-  const currentItems = episodeVideos.slice(itemOffset, endOffset);
-  const pageCount = Math.ceil(episodeVideos.length / itemsPerPage);
-
   const handlePageClick = (event: any) => {
-    const newOffset = (event.selected * itemsPerPage) % episodeVideos.length;
-    setItemOffset(newOffset);
+    setPage(event.selected + 1);
   };
 
   useEffect(() => {
-    axios.get(jikanAPI.getAnimeVideosEpisodes(Number(id))).then(({ data }) => {
-      setEpisodeVideos(data.data);
-    });
-  }, [id]);
+    axios
+      .get(jikanAPI.getAnimeVideosEpisodes(Number(id), page))
+      .then(({ data }) => {
+        setEpisodeVideos(data.data);
+        console.log(data.data);
+        setLastPage(data.pagination.last_visible_page);
+      });
+  }, [id, page]);
 
   return (
     <div>
       <h2 className="mb-3 font-semibold md:text-lg">Episodes</h2>
       <div className="grid grid-cols-1 gap-5 mb-12 xl:grid-cols-2">
-        {currentItems?.map(({ mal_id, images, title, episode }) => {
+        {episodeVideos?.map(({ mal_id, images, title, episode }) => {
           return (
             <div
               className="p-2 min-h-[120px] flex gap-4 bg-white text-sm rounded-xl shadow-[-4px_4px_8px_rgba(226,226,226,0.2),4px_4px_8px_rgba(226,226,226,0.2)]"
@@ -58,10 +56,9 @@ const DetailsEpisodes = () => {
         nextLabel=">"
         onPageChange={handlePageClick}
         pageRangeDisplayed={5}
-        pageCount={pageCount}
+        pageCount={lastPage}
         previousLabel="<"
         renderOnZeroPageCount={undefined}
-        className="flex items-center justify-center gap-3 font-medium navigation text-text3"
       />
     </div>
   );

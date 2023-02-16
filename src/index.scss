@@ -40,8 +40,9 @@
   @apply px-5 lg:px-10 container mx-auto;
 }
 
-.navigation {
-  @apply flex-wrap;
+ul[role="navigation"] {
+  @apply flex flex-wrap items-center justify-center gap-3 font-medium text-text3;
+
   .selected {
     @apply font-semibold text-white bg-secondary;
   }
