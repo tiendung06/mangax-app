@@ -8,6 +8,7 @@ const AnimePage = lazy(() => import("./pages/AnimesPage"));
 const CharactersPage = lazy(() => import("./pages/CharactersPage"));
 const CharacterDetailsPage = lazy(() => import("./pages/CharacterDetailsPage"));
 const SeasonPage = lazy(() => import("./pages/SeasonPage"));
+const SearchPage = lazy(() => import("./pages/SearchPage"));
 
 function App() {
   return (
@@ -30,6 +31,10 @@ function App() {
               element={<CharacterDetailsPage></CharacterDetailsPage>}
             ></Route>
             <Route path="/season" element={<SeasonPage></SeasonPage>}></Route>
+            <Route
+              path="/search/:id"
+              element={<SearchPage></SearchPage>}
+            ></Route>
           </Route>
         </Routes>
       </Suspense>

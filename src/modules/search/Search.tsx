@@ -52,13 +52,13 @@ const Search = () => {
         <div className="flex items-center justify-between p-3">
           <Link
             to={`/search/${searchFilter}`}
-            className="inline-block p-3 text-sm font-medium underline"
+            className="inline-block p-3 text-xs font-medium underline lg:text-sm"
             onClick={handleCloseForm}
           >
             See all results for {searchFilter}
           </Link>
           <button
-            className="px-6 py-3 text-error bg-redSoft rounded-xl"
+            className="px-4 py-2 rounded-md lg:px-6 lg:py-3 text-error bg-redSoft lg:rounded-xl"
             onClick={handleCloseForm}
           >
             <IconClose />
@@ -78,7 +78,7 @@ const Search = () => {
                   alt={title}
                   className="object-cover rounded-xl"
                 />
-                <div className="text-sm">
+                <div className="text-xs lg:text-sm">
                   <p className="mb-1">{title}</p>
                   <p className="text-text3">{year || "Unknown"}</p>
                 </div>
