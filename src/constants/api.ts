@@ -10,7 +10,8 @@ const LIMIT = 24;
 
 export const jikanAPI = {
   //Anime
-  getListAnime: (page = 1) => `${anime}?page=${page}&limit=${LIMIT}`,
+  getListAnime: (page = 1, query = "") =>
+    `${anime}?page=${page}&limit=${LIMIT}&q=${query}`,
   getAnimeSearch: (filter: string) => `${anime}?q=${filter}$limit=${LIMIT}`,
   getAnimeById: (id: number) => `${anime}/${id}`,
   getAnimeCharacters: (id: number) => `${anime}/${id}/characters`,

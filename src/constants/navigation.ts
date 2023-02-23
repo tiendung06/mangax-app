@@ -8,10 +8,6 @@ export const navigation = [
     url: "/anime",
   },
   {
-    title: "Manga",
-    url: "/manga",
-  },
-  {
     title: "Character",
     url: "/character",
   },
