@@ -65,7 +65,9 @@ const DetailsPage = () => {
           </div>
         </div>
         <div className="flex flex-col flex-1 gap-4">
-          <h1 className="text-base font-bold md:text-xl">{details?.title}</h1>
+          <h1 className="text-base font-bold md:text-xl">
+            {details?.title || "Unknown"}
+          </h1>
           <div className="flex items gap-x-5">
             {details?.genres.map(({ mal_id, name }) => {
               return (
@@ -89,7 +91,7 @@ const DetailsPage = () => {
                 Score
               </span>
               <span className="text-base font-semibold md:text-xl">
-                {details?.score}
+                {details?.score || 0}
               </span>
             </div>
             <div className="flex flex-col items-center justify-center gap-1">
@@ -112,8 +114,23 @@ const DetailsPage = () => {
           <p className="text-xs md:text-sm">{details?.synopsis}</p>
         </div>
       </div>
-      <div className="mb-6 lg:mb-9 spacing">
+      <div className="flex flex-wrap justify-between gap-5 mb-6 lg:mb-9 spacing">
         <Aside details={details} />
+        <div className="flex-1">
+          {details?.trailer.embed_url && (
+            <div className="w-full h-full">
+              <iframe
+                width="560"
+                height="315"
+                src={details?.trailer.embed_url || details?.trailer.url}
+                title="YouTube video player"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="object-fill w-full h-full rounded-xl"
+              ></iframe>
+            </div>
+          )}
+        </div>
       </div>
       <div className="mb-6 lg:mb-9">
         <Tab tabs={tabs} />

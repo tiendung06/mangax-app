@@ -20,7 +20,6 @@ const DetailsEpisodes = () => {
       .get(jikanAPI.getAnimeVideosEpisodes(Number(id), page))
       .then(({ data }) => {
         setEpisodeVideos(data.data);
-        console.log(data.data);
         setLastPage(data.pagination.last_visible_page);
       });
   }, [id, page]);
