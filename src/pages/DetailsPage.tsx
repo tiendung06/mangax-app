@@ -6,7 +6,7 @@ import DetailsPictures from "../modules/details/DetailsPictures";
 import DetailsEpisodes from "../modules/details/DetailsEpisodes";
 import DetailsCharacters from "../modules/details/DetailsCharacters";
 import axios from "axios";
-import Aside from "../modules/aside/Aside";
+import AsideDetails from "../modules/aside/AsideDetails";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { TabsType } from "../type/tabsType";
@@ -115,7 +115,7 @@ const DetailsPage = () => {
         </div>
       </div>
       <div className="flex flex-wrap justify-between gap-5 mb-6 lg:mb-9 spacing">
-        <Aside details={details} />
+        <AsideDetails details={details} />
         <div className="flex-1">
           {details?.trailer.embed_url && (
             <div className="w-full h-full">

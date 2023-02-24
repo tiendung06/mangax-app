@@ -18,7 +18,7 @@ const List: FC<ListType> = ({ title, type, link }) => {
   }, [type]);
 
   return (
-    <div className="px-5 mb-10 lg:px-10">
+    <div className="mb-10 spacing last:mb-0">
       <div className="flex items-center justify-between mb-5">
         <h2 className="font-semibold md:text-lg">{title}</h2>
         <Link

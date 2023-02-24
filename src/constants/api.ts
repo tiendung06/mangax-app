@@ -45,6 +45,7 @@ export const jikanAPI = {
   //Season
   getSeasonNow: (page = 1) => `${season}/now?page=${page}&limit=${LIMIT}`,
   //Top
-  getTopAnime: (page = 1) => `${top}/anime?page=${page}&limit=${LIMIT}`,
+  getTopAnime: (page = 1, filter = "") =>
+    `${top}/anime?page=${page}&limit=${LIMIT}&filter=${filter}`,
   getTopManga: (page = 1) => `${top}/manga?page=${page}&limit=${LIMIT}`,
 };
