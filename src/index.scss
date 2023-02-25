@@ -6,15 +6,12 @@
   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
   body {
-    @apply bg-lite text-text1 text-sm leading-relaxed lg:text-base font-body;
+    @apply bg-lite text-text1 text-sm leading-relaxed lg:text-base font-body dark:bg-darkbg dark:text-white;
   }
 
   img {
     @apply block select-none;
   }
-}
-
-@layer components {
 }
 
 .swiper {
@@ -41,15 +38,15 @@
 }
 
 ul[role="navigation"] {
-  @apply flex flex-wrap items-center justify-center gap-3 font-medium text-text3;
+  @apply flex flex-wrap items-center justify-center gap-3 font-medium text-text3 dark:text-text4;
 
   .selected {
-    @apply font-semibold text-white bg-secondary;
+    @apply font-semibold text-white bg-secondary dark:bg-secondary20;
   }
 
   .previous,
   .next {
-    @apply bg-white text-icon-color shadow-[0px_3px_6px_rgba(131,146,166,0.1)];
+    @apply bg-white text-icon-color shadow-[0px_3px_6px_rgba(131,146,166,0.1)] dark:bg-darkStroke dark:shadow-none;
   }
 
   li {
@@ -57,7 +54,7 @@ ul[role="navigation"] {
   }
 
   li:hover:not(.selected, .previous, .break, .next) {
-    @apply text-secondary;
+    @apply text-secondary dark:text-secondary20;
   }
 
   a {

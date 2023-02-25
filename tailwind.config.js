@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: "class",
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
@@ -7,8 +8,16 @@ module.exports = {
         body: ["Poppins", "sans-serif"],
       },
       colors: {
-        primary: "#4ACD8D",
+        primary: "#1DC071",
+        primary20: "#4ACD8D",
+        primary40: "#77D9AA",
+        primary60: "#A5E6C6",
+        primary80: "#D2F2E3",
         secondary: "#6F49FD",
+        secondary20: "#8C6DFD",
+        secondary40: "#A992FE",
+        secondary60: "#C5B6FE",
+        secondary80: "#E2DBFF",
         text1: "#171725",
         text2: "#4B5264",
         text3: "#808191",
@@ -32,5 +41,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/line-clamp")],
 };

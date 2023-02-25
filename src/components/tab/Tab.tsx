@@ -13,7 +13,7 @@ const Tab: FC<TabsProps> = ({ tabs = [] }) => {
 
   return (
     <div>
-      <div className="flex items-center w-full h-10 mb-6 bg-white shadow-sm lg:mb-9 lg:h-20">
+      <div className="flex items-center w-full h-10 mb-6 bg-white shadow-sm lg:mb-9 lg:h-20 dark:bg-darkSecondary">
         <div className="flex gap-6 text-xs font-medium lg:text-sm spacing lg:gap-16 text-text3">
           {tabs.map(({ label, index }) => (
             <button

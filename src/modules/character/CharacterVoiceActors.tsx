@@ -21,7 +21,7 @@ const CharacterVoiceActors = () => {
         {voiceActors.map(({ language, person }) => {
           return (
             <div
-              className="flex items-center gap-3 justify-between p-2 bg-white rounded-xl shadow-[-4px_4px_8px_rgba(226,226,226,0.2),4px_4px_8px_rgba(226,226,226,0.2)]"
+              className="flex items-center gap-3 justify-between p-2 bg-white rounded-xl shadow-[-4px_4px_8px_rgba(226,226,226,0.2),4px_4px_8px_rgba(226,226,226,0.2)] dark:bg-darkSecondary dark:shadow-none"
               key={person.mal_id}
             >
               <div className="flex flex-1 h-full">

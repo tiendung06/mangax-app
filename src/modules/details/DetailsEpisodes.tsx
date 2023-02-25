@@ -31,7 +31,7 @@ const DetailsEpisodes = () => {
         {episodeVideos?.map(({ mal_id, images, title, episode }) => {
           return (
             <div
-              className="p-2 min-h-[120px] flex gap-4 bg-white text-sm rounded-xl shadow-[-4px_4px_8px_rgba(226,226,226,0.2),4px_4px_8px_rgba(226,226,226,0.2)]"
+              className="p-2 min-h-[120px] flex gap-4 bg-white text-sm rounded-xl shadow-[-4px_4px_8px_rgba(226,226,226,0.2),4px_4px_8px_rgba(226,226,226,0.2)] dark:bg-darkSecondary dark:shadow-none"
               key={mal_id}
             >
               <div className="h-full">

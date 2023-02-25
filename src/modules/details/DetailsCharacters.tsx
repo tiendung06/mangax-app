@@ -35,7 +35,7 @@ const DetailsCharacters = () => {
         {currentItems?.map(({ character, voice_actors, role }: Characters) => {
           return (
             <div
-              className="flex items-center gap-3 justify-between p-2 bg-white rounded-xl shadow-[-4px_4px_8px_rgba(226,226,226,0.2),4px_4px_8px_rgba(226,226,226,0.2)] cursor-pointer"
+              className="flex items-center gap-3 justify-between p-2 bg-white rounded-xl shadow-[-4px_4px_8px_rgba(226,226,226,0.2),4px_4px_8px_rgba(226,226,226,0.2)] cursor-pointer dark:bg-darkSecondary dark:shadow-none"
               key={character.mal_id}
               onClick={() => navigate(`/character/${character.mal_id}`)}
             >

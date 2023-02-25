@@ -20,13 +20,14 @@ const AsideHome = () => {
         return (
           <Link
             to={`/anime/${mal_id}`}
-            className="flex gap-3 mb-3 last:mb-0 hover:text-secondary"
+            className="flex gap-3 mb-3 last:mb-0 hover:text-secondary dark:hover:text-secondary20"
             key={mal_id}
+            title={title}
           >
             <img
               src={images.webp.image_url}
               alt={title}
-              className="object-cover w-14 rounded-xl"
+              className="object-cover rounded-lg w-14"
             />
             <p className="text-xs font-medium transition-all lg:text-sm">
               {title || "Unknown"}
