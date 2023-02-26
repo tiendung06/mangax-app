@@ -34,7 +34,7 @@ const Header = () => {
         <div
           className={`${
             !menu ? "h-0" : ""
-          } fixed top-0 left-0 lg:z-10 z-40 w-full overflow-hidden transition-all lg:h-fit lg:min-h-0 lg:static bg-lite lg:bg-transparent dark:bg-darkbg dark:lg:bg-transparent`}
+          } fixed top-0 left-0 lg:z-10 z-40 w-full overflow-hidden lg:h-fit lg:min-h-0 lg:static bg-lite lg:bg-transparent dark:bg-darkbg dark:lg:bg-transparent`}
         >
           <div className="px-5 py-4 lg:p-0">
             <div className="flex items-center justify-between mb-8 lg:mb-0">

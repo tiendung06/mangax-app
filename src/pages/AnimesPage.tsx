@@ -2,8 +2,9 @@ import ReactPaginate from "react-paginate";
 import Card from "../components/card/Card";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Anime } from "../interface/animeInterface";
+import { Link } from "react-router-dom";
 import { jikanAPI } from "../constants/api";
+import { Anime } from "../interface/animeInterface";
 
 const AnimePage = () => {
   const [anime, setAnime] = useState<Anime[]>([]);
@@ -28,12 +29,9 @@ const AnimePage = () => {
       <div className="grid grid-cols-3 gap-3 mb-12 md:grid-cols-6 lg:grid-cols-6 xl:grid-cols-8">
         {anime?.map(({ mal_id, images, title }: Anime) => {
           return (
-            <Card
-              key={mal_id}
-              mal_id={mal_id}
-              images={images}
-              title={title}
-            ></Card>
+            <Link to={`/anime/${mal_id}`} key={mal_id}>
+              <Card images={images} title={title} />
+            </Link>
           );
         })}
       </div>

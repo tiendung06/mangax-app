@@ -6,6 +6,7 @@ import { Navigation } from "swiper";
 import { jikanAPI } from "../../constants/api";
 import "swiper/css/navigation";
 import "swiper/css";
+import { Link } from "react-router-dom";
 
 const ListRecommendation = ({ id }: { id: string | undefined }) => {
   const [recommendation, setRecommendation] = useState([]);
@@ -31,11 +32,9 @@ const ListRecommendation = ({ id }: { id: string | undefined }) => {
           {recommendation.map(({ entry }: any) => {
             return (
               <SwiperSlide key={entry.mal_id}>
-                <Card
-                  mal_id={entry.mal_id}
-                  images={entry.images}
-                  title={entry.title}
-                ></Card>
+                <Link to={`/anime/${entry.mal_id}`}>
+                  <Card images={entry.images} title={entry.title} />
+                </Link>
               </SwiperSlide>
             );
           })}

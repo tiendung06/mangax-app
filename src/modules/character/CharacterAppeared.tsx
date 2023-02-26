@@ -1,6 +1,6 @@
 import Card from "../../components/card/Card";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { jikanAPI } from "../../constants/api";
 import { Appeared } from "../../interface/charactersInterface";
@@ -21,12 +21,9 @@ const CharacterAppeared = () => {
       <div className="grid grid-cols-3 gap-3 md:grid-cols-6 lg:grid-cols-6 xl:grid-cols-8">
         {appeared?.map(({ anime }: Appeared) => {
           return (
-            <Card
-              key={anime.mal_id}
-              images={anime.images}
-              title={anime.title}
-              mal_id={anime.mal_id}
-            />
+            <Link to={`/anime/${anime.mal_id}`} key={anime.mal_id}>
+              <Card images={anime.images} title={anime.title} />
+            </Link>
           );
         })}
       </div>

@@ -1,5 +1,5 @@
 export interface ICard {
-  mal_id: number;
+  mal_id?: number;
   images: Images;
   title: string;
   genres?: Genre[];

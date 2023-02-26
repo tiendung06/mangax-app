@@ -19,7 +19,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="items-center w-full justify-end block pb-8 bg-white lg:flex gap-x-3 md:gap-x-5 lg:p-0 lg:bg-transparent shadow-[10px_10px_20px_rgba(218,213,213,0.15)] lg:shadow-none dark:bg-darkSecondary dark:lg:bg-transparent dark:shadow-none transition-all">
+    <nav className="items-center w-full justify-end block pb-8 bg-white lg:flex gap-x-3 md:gap-x-5 lg:p-0 lg:bg-transparent shadow-[10px_10px_20px_rgba(218,213,213,0.15)] lg:shadow-none dark:bg-darkSecondary dark:lg:bg-transparent dark:shadow-none">
       {navigation.map(({ title, url }) => (
         <NavLink
           to={url}
@@ -34,7 +34,7 @@ const Navbar = () => {
         </NavLink>
       ))}
       <button
-        className="flex items-center w-full gap-2 px-5 py-4 transition-all bg-white lg:p-0 lg:h-12 lg:justify-center lg:w-12 lg:rounded-xl text-text4 hover:text-text2 dark:text-text3 dark:hover:text-text4 dark:bg-darkSecondary"
+        className="flex items-center w-full gap-2 px-5 py-4 bg-white lg:transition-none lg:p-0 lg:h-12 lg:justify-center lg:w-12 lg:rounded-xl text-text4 hover:text-text2 dark:text-text3 dark:hover:text-text4 dark:bg-darkSecondary"
         onClick={handleDarkMode}
       >
         <IconSun />

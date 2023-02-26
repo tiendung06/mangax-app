@@ -1,7 +1,8 @@
 import ReactPaginate from "react-paginate";
-import CharacterCard from "../components/card/CharacterCard";
+import Card from "../components/card/Card";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { jikanAPI } from "../constants/api";
 import { Daum } from "../interface/charactersInterface";
 
@@ -28,12 +29,9 @@ const CharactersPage = () => {
       <div className="grid grid-cols-3 gap-3 mb-12 md:grid-cols-6 lg:grid-cols-6 xl:grid-cols-8">
         {characters?.map(({ mal_id, images, name }: Daum) => {
           return (
-            <CharacterCard
-              key={mal_id}
-              mal_id={mal_id}
-              images={images}
-              title={name}
-            ></CharacterCard>
+            <Link to={`/character/${mal_id}`} key={mal_id}>
+              <Card images={images} title={name} />
+            </Link>
           );
         })}
       </div>
