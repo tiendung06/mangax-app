@@ -1,3 +1,4 @@
+import Skeleton from "../components/skeleton/Skeleton";
 import ReactPaginate from "react-paginate";
 import Card from "../components/card/Card";
 import axios from "axios";
@@ -28,14 +29,16 @@ const HomePage = () => {
     <div className="flex flex-wrap gap-x-5 gap-y-10 xl:flex-nowrap spacing">
       <div className="w-full xl:w-3/4">
         <h1 className="mb-5 font-semibold md:text-lg">Upcoming</h1>
+        {anime.length <= 0 && <Skeleton />}
         <div className="grid grid-cols-3 gap-3 mb-12 md:grid-cols-6">
-          {anime?.map(({ mal_id, images, title }: Anime) => {
-            return (
-              <Link to={`/anime/${mal_id}`} key={mal_id}>
-                <Card images={images} title={title} />
-              </Link>
-            );
-          })}
+          {anime.length > 0 &&
+            anime.map(({ mal_id, images, title }: Anime) => {
+              return (
+                <Link to={`/anime/${mal_id}`} key={mal_id}>
+                  <Card images={images} title={title} />
+                </Link>
+              );
+            })}
         </div>
         <ReactPaginate
           breakLabel="..."
